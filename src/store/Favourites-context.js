@@ -1,7 +1,7 @@
 import { props } from 'bluebird';
 import { createContext, useState } from 'react';
 
- const FavoiritesContext = createContext({
+ const FavouritesContext = createContext({
     favourites: [],
     totatFavourites: 0,
     addFavourite: (favouriteMeetup) => {},
@@ -9,7 +9,7 @@ import { createContext, useState } from 'react';
     itemIsFavourite: (meetupId) => {}
  });
 
-export function FavouroteContextProvider() {
+export function FavouriteContextProvider() {
     const [ userFavourites, setUserFavourites ] = useState([]);
 
     function addFavouriteHandler(favouriteMeetup) {
@@ -36,10 +36,10 @@ export function FavouroteContextProvider() {
         itemIsFavourite: itemIsFavouriteHandler
     }
     return (
-        <FavoiritesContext.Provider value = {context}>
+        <FavouritesContext.Provider value = {context}>
             { props.children }
-        </FavoiritesContext.Provider>
+        </FavouritesContext.Provider>
     );
 }
 
-export default FavoiritesContext;
+export default FavouritesContext;

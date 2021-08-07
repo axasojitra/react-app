@@ -1,0 +1,24 @@
+import { useContext } from 'react';
+import FavoiritesContext from '../store/Favourites-context';
+import MeetupList from '../components/meetups/MeetupList';
+
+function FavouritesPage() {
+    const favouriteCtx = useContext(FavoiritesContext);
+
+    let content;
+
+    if (favouriteCtx.totatFavourites === 0) {
+        content = <h2>You Got No Favourites yet...</h2>
+    } else {
+        content = <MeetupList meetups={ favouriteCtx.favourites }></MeetupList>
+    }
+    return (
+        <section>
+            <h1>All Favourites</h1>
+            {content}
+        </section>
+
+    );
+}
+
+export default FavouritesPage;
